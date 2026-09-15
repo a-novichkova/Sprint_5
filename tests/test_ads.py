@@ -3,6 +3,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from locators import MainPageLocators, AdFormLocators, ProfilePageLocators
 
+from constants import PROFILE_URL
 
 class TestAds:
 
@@ -46,7 +47,7 @@ class TestAds:
             EC.invisibility_of_element_located(AdFormLocators.PUBLISH_BUTTON)
         )
 
-        driver.get("https://qa-desk.education-services.ru/profile")
+        driver.get(PROFILE_URL)
 
         ad_locator = ProfilePageLocators.ad_title_by_text(title)
         WebDriverWait(driver, 5).until(
